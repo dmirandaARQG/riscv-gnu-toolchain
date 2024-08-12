@@ -46,15 +46,12 @@ jobs:
              libboost-regex-dev
              libboost-system-dev
              libboost-all-dev
-
-      - name: Export variables
+          
+      - name: Build RISC-V Toolchain
         run: |
           export RISCV=/opt/riscv
           export PATH="$PATH:/opt/riscv/bin"
           source ~/.bashrc
-          
-      - name: Build RISC-V Toolchain
-        run: |
           mkdir riscv-64
           cd riscv-64
           git clone https://github.com/riscv/riscv-gnu-toolchain
