@@ -68,7 +68,7 @@ jobs:
           cd riscv-pk
           mkdir build
           cd build
-          ../configure --prefix=/opt/riscv --host=riscv64-unknown-elf --with-arch=rv64gc_zifencei
+          ../configure --prefix=/opt/riscv --host=riscv64-unknown-elf
           make -j $(nproc)
           sudo make install
           
