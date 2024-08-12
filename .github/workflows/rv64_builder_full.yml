@@ -63,14 +63,6 @@ jobs:
           ../configure --prefix=/opt/riscv
           make -j $(nproc)
           sudo make install
-          cd ../..
-          git clone https://github.com/riscv-software-src/riscv-pk
-          cd riscv-pk
-          mkdir build
-          cd build
-          ../configure --prefix=/opt/riscv --host=riscv64-unknown-elf
-          make -j $(nproc)
-          sudo make install
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
