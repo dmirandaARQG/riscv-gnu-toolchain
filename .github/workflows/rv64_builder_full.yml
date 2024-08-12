@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Dependencies
-        run: sudo apt-get install -y 
+        run: sudo apt-get install -y
              autoconf
              automake
              autotools-dev
@@ -42,8 +42,6 @@ jobs:
              git
              cmake
              libglib2.0-dev
-             apt-get
-             install
              device-tree-compiler
              libboost-regex-dev
              libboost-system-dev
