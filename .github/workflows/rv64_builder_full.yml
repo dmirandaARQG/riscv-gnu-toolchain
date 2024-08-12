@@ -47,6 +47,11 @@ jobs:
              libboost-system-dev
              libboost-all-dev
 
+      - name: Export variables
+        run: |
+          export RISCV=/opt/riscv
+          export PATH=$RISCV/bin:$PATH
+          
       - name: Build RISC-V Toolchain
         run: |
           mkdir riscv-64
