@@ -5,6 +5,53 @@ This is the RISC-V C and C++ cross-compiler. It supports two build modes:
 a generic ELF/Newlib toolchain and a more sophisticated Linux-ELF/glibc
 toolchain.
 
+
+### Installation Compiled Binaries
+1- Download prebuilt binaries from GitHub Actions > Artifacts
+
+2- Create directory for sources. Preferred `/home/usr/` to avoid the possibility of toolchain affecting any of the system files.
+
+```
+$ sudo mkdir /home/usr/riscv    # Create a new directory
+```
+3- Extract the downloaded file and paste in newly created directory.
+```
+$ sudo tar -xzf riscv-toolchain.tar.gz -C /home/usr/riscv/
+```
+4- Add Path to your system environment variables
+```
+$ nano .bashrc                  # Open bashrc
+$ export PATH=/home/usr/riscv/riscv-toolchain/bin:$PATH     # Add the path at the end
+```
+
+5- Save `.bashrc` (Ctrl+O, ENTER, Ctrl+X)
+
+6- Apply Changes
+```
+$ source .bashrc
+```
+7- Add write permissions to the source folder
+```
+$ sudo chmod -R +x /home/usr/riscv/riscv-toolchain/
+```
+### Verify installation 
+Run the following Command
+```
+$ riscv64-unknown-elf-gcc -v
+```
+- You should get
+```
+Using built-in specs.
+COLLECT_GCC=riscv64-unknown-elf-gcc
+COLLECT_LTO_WRAPPER=/home/aitesam961/riscv/riscv-toolchain/bin/../libexec/gcc/riscv64-unknown-elf/13.2.0/lto-wrapper
+Target: riscv64-unknown-elf
+```
+
+It is highly recommended to install the dependencies mentioned in `riscv-gnu-toolchain` readme. It will help avoid getting stuck at several stages if you move forward to building sibling tools.
+```
+$ sudo apt-get install autoconf automake autotools-dev curl python3 python3-pip libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build git cmake libglib2.0-dev
+```
+
 ###  Getting the sources
 
 This repository uses submodules, but submodules will fetch automatically on demand,
